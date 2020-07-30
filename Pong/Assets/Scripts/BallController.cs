@@ -12,42 +12,13 @@ public class BallController : MonoBehaviour
   {
     rb = GetComponent<Rigidbody>(); // Linking the rigidbody
     LaunchBall(); // Launching the ball
-    Debug.Log(rb.velocity.magnitude);
   }
 
-  // Adjusting the ball speed and direction after colliding with an object 
-  private void OnCollisionEnter(Collision collision)
-  {
-    // Since the wall are above or below the ball make the calcs with the z axis
-    if (collision.gameObject.tag == "Wall")
-    {
-      if (transform.position.z > collision.transform.position.z)
-      {
-        rb.AddForce(transform.forward.normalized * speed, ForceMode.Impulse);
-      }
-      if (transform.position.z < collision.transform.position.z)
-      {
-        rb.AddForce(transform.forward.normalized * -speed, ForceMode.Impulse);
-      }
-    }
-
-    // As the player will be on it's side (right, or left) make the calcs with the x axis
-    if (collision.gameObject.tag == "Player")
-    {
-      if (transform.position.x > collision.transform.position.x)
-      {
-        rb.AddForce(transform.right.normalized * speed, ForceMode.Impulse);
-      }
-      if (transform.position.x < collision.transform.position.x)
-      {
-        rb.AddForce(transform.right.normalized * -speed, ForceMode.Impulse);
-      }
-    }
-    Debug.Log(rb.velocity.magnitude);
-  }
-
+  // Launching the ball
   public void LaunchBall()
   {
-    rb.velocity = new Vector3(-1.0f, 0.0f, Random.Range(-3.0f, 3.0f)) * speed;
+    float dx = Random.Range(0, 2) == 0 ? -1 : 1; // Random x number to determine which side the ball will go
+    float dz = Random.Range(0, 2) == 0 ? -1 : 1; // Where the ball will go in the z axis
+    rb.velocity = new Vector3(-1, 0.0f, dz) * speed; // Launching the ball
   }
 }
