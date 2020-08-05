@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Wall
+  - Player 2
   layers:
   - Default
   - TransparentFX

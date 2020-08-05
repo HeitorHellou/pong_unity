@@ -21,4 +21,16 @@ public class BallController : MonoBehaviour
     float dz = Random.Range(0, 2) == 0 ? -1 : 1; // Where the ball will go in the z axis
     rb.velocity = new Vector3(-1, 0.0f, dz) * speed; // Launching the ball
   }
+
+  private void OnTriggerEnter(Collider other)
+  {
+    StartCoroutine("WaitLaunch");
+  }
+
+  IEnumerator WaitLaunch()
+  {
+    yield return new WaitForSeconds(3.0f);
+    transform.position = new Vector3(0.0f, 0.0f, 0.0f);
+    LaunchBall();
+  }
 }
