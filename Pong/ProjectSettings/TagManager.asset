@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Wall
   - Player 2
+  - Trigger P1
+  - Trigger P2
   layers:
   - Default
   - TransparentFX

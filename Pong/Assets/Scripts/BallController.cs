@@ -24,6 +24,14 @@ public class BallController : MonoBehaviour
 
   private void OnTriggerEnter(Collider other)
   {
+    if (other.gameObject.tag == "Trigger P1")
+    {
+      FindObjectOfType<GameSession>().ScorePointP2();
+    }
+    if (other.gameObject.tag == "Trigger P2")
+    {
+      FindObjectOfType<GameSession>().ScorePointP1();
+    }
     StartCoroutine("WaitLaunch");
   }
 
