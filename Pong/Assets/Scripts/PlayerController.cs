@@ -50,4 +50,17 @@ public class PlayerController : MonoBehaviour
     transform.Translate(0, 0, pos.z * speed * Time.fixedDeltaTime); // Moving the paddle
     CheckBoundaries(); // Checking if the player didn't reach the top nor the bottom of the screen
   }
+
+  // Setting the players position to the original position after scoring
+  public void SetPlayerPosition()
+  {
+    if (gameObject.tag == "Player")
+    {
+      transform.position = new Vector3(-18.5f, 0.0f, 0.0f);
+    }
+    if (gameObject.tag == "Player 2")
+    {
+      transform.position = new Vector3(18.5f, 0.0f, 0.0f);
+    }
+  }
 }

@@ -27,10 +27,18 @@ public class BallController : MonoBehaviour
     if (other.gameObject.tag == "Trigger P1")
     {
       FindObjectOfType<GameSession>().ScorePointP2();
+      foreach (var x in FindObjectsOfType<PlayerController>())
+      {
+        x.SetPlayerPosition();
+      }
     }
     if (other.gameObject.tag == "Trigger P2")
     {
       FindObjectOfType<GameSession>().ScorePointP1();
+      foreach (var x in FindObjectsOfType<PlayerController>())
+      {
+        x.SetPlayerPosition();
+      }
     }
     StartCoroutine("WaitLaunch");
   }
