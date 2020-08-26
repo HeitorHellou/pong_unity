@@ -6,9 +6,14 @@ using UnityEngine.SceneManagement;
 public class SceneLoader : MonoBehaviour
 {
   // Loading the next scene on build settings
-  public void loadNextScene()
+  public void LoadNextScene()
   {
     int currentScene = SceneManager.GetActiveScene().buildIndex;
     SceneManager.LoadScene(currentScene + 1);
+  }
+
+  public void QuitGame()
+  {
+    Application.Quit();
   }
 }
