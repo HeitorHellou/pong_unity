@@ -39,7 +39,7 @@ public class GameSession : MonoBehaviour
     score_p1++;
     p1_score.text = score_p1.ToString();
 
-    if (score_p1 >= 1)
+    if (score_p1 >= 5)
     {
       p1_score.text = "";
       p2_score.text = "";
@@ -55,7 +55,7 @@ public class GameSession : MonoBehaviour
     score_p2++;
     p2_score.text = score_p2.ToString();
 
-    if (score_p2 >= 1)
+    if (score_p2 >= 5)
     {
       p1_score.text = "";
       p2_score.text = "";
