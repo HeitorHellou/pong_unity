@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Set up the session for a rematch
+
 public class PlayAgain : MonoBehaviour
 {
   GameSession gameSession;

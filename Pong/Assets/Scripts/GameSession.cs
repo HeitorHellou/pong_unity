@@ -4,9 +4,12 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Store information regarding the match
+// And set up proper displays
+
 public class GameSession : MonoBehaviour
 {
-  public int score_p1 = 0, score_p2 = 0;
+  public int score_p1 = 0, score_p2 = 0; // Score player 1 and 2
   public Text p1_score, p2_score;
   public TextMeshProUGUI winnerText;
 
@@ -65,13 +68,15 @@ public class GameSession : MonoBehaviour
     }
   }
 
+  // Returns the winner of the match
   public string GetWinner()
   {
-    if (score_p1 > score_p2)
+    if (score_p1 > score_p2) // Checking which score is higher
       return "Player 1 won!";
     return "Player 2 won!";
   }
 
+  // On Play Againg destroy current game session
   public void PlayAgain()
   {
     Destroy(gameObject);

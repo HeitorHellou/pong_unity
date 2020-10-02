@@ -11,7 +11,7 @@ public class BallController : MonoBehaviour
   private void Start()
   {
     rb = GetComponent<Rigidbody>(); // Linking the rigidbody
-    LaunchBall(); // Launching the ball
+    StartCoroutine("WaitLaunch"); // Lauching the ball 
   }
 
   // Launching the ball
@@ -19,13 +19,13 @@ public class BallController : MonoBehaviour
   {
     float dx = Random.Range(0, 2) == 0 ? -1 : 1; // Random x number to determine which side the ball will go
     float dz = Random.Range(0, 2) == 0 ? -1 : 1; // Where the ball will go in the z axis
-    rb.velocity = new Vector3(-1, 0.0f, dz) * speed; // Launching the ball
+    rb.velocity = new Vector3(dx, 0.0f, dz) * speed; // Launching the ball
   }
 
   // Scoring a point
   private void OnTriggerEnter(Collider other)
   {
-    // Checking who scored the point
+    // Checking who scored the goal
     if (other.gameObject.tag == "Trigger P1")
     {
       // Adding a point to player score
@@ -44,6 +44,10 @@ public class BallController : MonoBehaviour
         x.SetPlayerPosition();
       }
     }
+    transform.position = new Vector3(0.0f, 0.0f, 0.0f); // Reseting ball position
+    // Removing the object forces
+    rb.velocity = Vector3.zero; 
+    rb.angularVelocity = Vector3.zero;
     // Relaunching the ball
     StartCoroutine("WaitLaunch");
   }
@@ -51,8 +55,7 @@ public class BallController : MonoBehaviour
   // Delay for ball launch
   IEnumerator WaitLaunch()
   {
-    yield return new WaitForSeconds(3.0f); // Waiting 3 seconds 
-    transform.position = new Vector3(0.0f, 0.0f, 0.0f); // Reseting ball position
+    yield return new WaitForSeconds(2.0f); // Waiting 2 seconds 
     LaunchBall(); // Launching the ball
   }
 }

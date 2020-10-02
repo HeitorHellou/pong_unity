@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+// Managing scenes in the game
+
 public class SceneLoader : MonoBehaviour
 {
   // Loading the next scene on build settings

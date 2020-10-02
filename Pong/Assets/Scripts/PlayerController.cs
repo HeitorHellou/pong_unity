@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+// Responsible for controlling the player
+
 public class PlayerController : MonoBehaviour
 {
   public float speed;
 
-  float zMin = -9, zMax = 9;
+  float zMin = -9, zMax = 9; // Minimum and maximum value in which the player can transverse
 
+
+  // Setting up for a 1 keyboard 2 player game
   private void FixedUpdate()
   {
     if (gameObject.tag == "Player")
@@ -39,6 +43,7 @@ public class PlayerController : MonoBehaviour
     }
   }
 
+  // Moving the player
   public void MovePaddle(string axis)
   {
     // Moving the player (axis = Vertical for player 1 / Vertical2 for player 2
