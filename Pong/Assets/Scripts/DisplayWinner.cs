@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class DisplayerWinner : MonoBehaviour
+public class DisplayWinner : MonoBehaviour
 {
   // Script for displaying the winner of the match
   public TextMeshProUGUI winnerText;

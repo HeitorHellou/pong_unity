@@ -32,6 +32,7 @@ public class GameSession : MonoBehaviour
   {
     sceneLoader = FindObjectOfType<SceneLoader>();
 
+    // Displaying the score
     p1_score.text = score_p1.ToString();
     p2_score.text = score_p2.ToString();
   }
@@ -46,7 +47,6 @@ public class GameSession : MonoBehaviour
     {
       p1_score.text = "";
       p2_score.text = "";
-      winnerText.text = "Player 1 won!";
 
       sceneLoader.LoadNextScene();
     }
@@ -62,7 +62,6 @@ public class GameSession : MonoBehaviour
     {
       p1_score.text = "";
       p2_score.text = "";
-      winnerText.text = "Player 2 won!";
 
       sceneLoader.LoadNextScene();
     }
